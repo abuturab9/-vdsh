@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .div_1{
+      border: 10px solid;
+    }
+    .div_2{
+        background-color: brown;
+    }
+    .div_3{
+        background-color: gray;
+    }
+    .div_4{
+        background-color: gold;
+    }
+</style>
+<body>
+    <table border="1">
+    <div class="div_1">
+        <tr>
+            <div class="div_2">Name</div>
+            <div class="div_3">Email</div>
+            <div class="div_4">ID</div>
+          
+        </tr>
+    </div>
+
+        <!-- <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>ID</th>
+            </tr>
+        </thead> -->
+        <tbody id="tb"></tbody>
+    </table>
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.6.0.js" ></script>
+    <script>
+        var tbody = document.getElementById('tb');
+            $.getJSON("data.json",function(res)
+            {
+                res.forEach(function(Rec)
+                {
+                    // document.write("Name:"+Rec.Name+"<br>");
+                    // document.write("Email:"+Rec.Email+"<br>");
+                    // document.write("ID:"+Rec.ID+"<br>");
+                    // document.write("<hr>");
+
+                    tbody.innerHTML += "<div>"+Rec.Name+"</div>"+Rec.Email+"<div>"+Rec.ID+"</div>";
+                    // tbody.innerHTML += "<tr><td>"+Rec.Name+"</td><td>"+Rec.Email+"</td><td>"+Rec.ID+"</td></tr>";
+                });
+            });
+            </script>
